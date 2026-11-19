@@ -188,3 +188,10 @@ US1 → US2 → US3 → US4, running `dotnet test` after each story.
 
 - Known accepted limit (research R6): two concurrent adds of different tags at 4 tags could exceed 5. Not covered by tasks (Constitution IV).
 - Do not commit until the user asks.
+
+---
+
+## Phase 8: Convergence
+
+- [ ] T034 Complete the manual quickstart walkthrough against the running API (delete any local `catalog.db` first) and fix any mismatch, per T032 (partial)
+- [ ] T035 Review `tests/Catalog.Tests/SpecAcceptanceTests.cs`: it is not in the spec, plan, or tasks. Justify it in the plan (cross-build acceptance harness) or remove it, per Constitution IV (unrequested)
