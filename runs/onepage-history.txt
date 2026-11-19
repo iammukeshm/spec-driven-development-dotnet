@@ -1,0 +1,27 @@
+
+### add independent spec acceptance tests
+
+ tests/Catalog.Tests/SpecAcceptanceTests.cs | 134 +++++++++++++++++++++++++++++
+ 1 file changed, 134 insertions(+)
+
+### onepage: implement product tags
+
+ src/Catalog.Api/Products.cs         | 101 ++++++++++++++++++++--
+ tests/Catalog.Tests/ProductTests.cs | 161 ++++++++++++++++++++++++++++++++++++
+ 2 files changed, 255 insertions(+), 7 deletions(-)
+
+### baseline
+
+ .gitignore                                     |  7 +++
+ Catalog.slnx                                   |  8 ++++
+ docs/specs/product-tags.md                     | 33 ++++++++++++++
+ global.json                                    |  9 ++++
+ src/Catalog.Api/Catalog.Api.csproj             | 15 +++++++
+ src/Catalog.Api/Products.cs                    | 59 ++++++++++++++++++++++++++
+ src/Catalog.Api/Program.cs                     | 25 +++++++++++
+ src/Catalog.Api/Properties/launchSettings.json | 23 ++++++++++
+ src/Catalog.Api/appsettings.Development.json   |  8 ++++
+ src/Catalog.Api/appsettings.json               |  9 ++++
+ tests/Catalog.Tests/Catalog.Tests.csproj       | 26 ++++++++++++
+ tests/Catalog.Tests/ProductTests.cs            | 31 ++++++++++++++
+ 12 files changed, 253 insertions(+)

@@ -1,0 +1,94 @@
+
+### add independent spec acceptance tests
+
+ tests/Catalog.Tests/SpecAcceptanceTests.cs | 134 +++++++++++++++++++++++++++++
+ 1 file changed, 134 insertions(+)
+
+### speckit: implement
+
+ specs/001-product-tags/tasks.md                    |  64 ++--
+ src/Catalog.Api/Catalog.Api.csproj                 |   4 +
+ .../20261119191309_InitialCreate.Designer.cs       |  44 +++
+ .../Migrations/20261119191309_InitialCreate.cs     |  35 +++
+ .../20261119191334_AddProductTags.Designer.cs      |  74 +++++
+ .../Migrations/20261119191334_AddProductTags.cs    |  44 +++
+ .../Migrations/CatalogDbContextModelSnapshot.cs    |  71 +++++
+ src/Catalog.Api/Products.cs                        | 113 ++++++-
+ src/Catalog.Api/Program.cs                         |   2 +-
+ src/Catalog.Api/Tags.cs                            |  24 ++
+ tests/Catalog.Tests/ProductTagTests.cs             | 330 +++++++++++++++++++++
+ 11 files changed, 764 insertions(+), 41 deletions(-)
+
+### speckit: tasks
+
+ specs/001-product-tags/tasks.md | 190 ++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 190 insertions(+)
+
+### speckit: plan
+
+ specs/001-product-tags/contracts/tags-api.md | 55 ++++++++++++++++++
+ specs/001-product-tags/data-model.md         | 53 ++++++++++++++++++
+ specs/001-product-tags/plan.md               | 83 ++++++++++++++++++++++++++++
+ specs/001-product-tags/quickstart.md         | 40 ++++++++++++++
+ specs/001-product-tags/research.md           | 61 ++++++++++++++++++++
+ 5 files changed, 292 insertions(+)
+
+### speckit: specify
+
+ specs/001-product-tags/checklists/requirements.md |  35 ++++++
+ specs/001-product-tags/spec.md                    | 134 ++++++++++++++++++++++
+ 2 files changed, 169 insertions(+)
+
+### speckit: constitution
+
+ .specify/memory/constitution.md | 90 +++++++++++++++++++++++++----------------
+ 1 file changed, 55 insertions(+), 35 deletions(-)
+
+### specify init (Spec Kit 1.4.3, claude integration)
+
+ .claude/skills/speckit-analyze/SKILL.md      | 283 ++++++++
+ .claude/skills/speckit-checklist/SKILL.md    | 387 +++++++++++
+ .claude/skills/speckit-clarify/SKILL.md      | 295 ++++++++
+ .claude/skills/speckit-constitution/SKILL.md | 183 +++++
+ .claude/skills/speckit-converge/SKILL.md     | 286 ++++++++
+ .claude/skills/speckit-implement/SKILL.md    | 230 +++++++
+ .claude/skills/speckit-plan/SKILL.md         | 170 +++++
+ .claude/skills/speckit-specify/SKILL.md      | 349 ++++++++++
+ .claude/skills/speckit-tasks/SKILL.md        | 223 ++++++
+ .specify/.gitignore                          |  14 +
+ .specify/init-options.json                   |  10 +
+ .specify/integration.json                    |  15 +
+ .specify/integrations/claude.manifest.json   |  16 +
+ .specify/integrations/speckit.manifest.json  |  20 +
+ .specify/memory/.constitution-template.json  |   4 +
+ .specify/memory/constitution.md              |  50 ++
+ .specify/scripts/bash/check-prerequisites.sh | 249 +++++++
+ .specify/scripts/bash/common.sh              | 971 +++++++++++++++++++++++++++
+ .specify/scripts/bash/create-new-feature.sh  | 505 ++++++++++++++
+ .specify/scripts/bash/markdown_sections.py   | 230 +++++++
+ .specify/scripts/bash/resolve-template.sh    |  57 ++
+ .specify/scripts/bash/setup-plan.sh          |  89 +++
+ .specify/scripts/bash/setup-tasks.sh         |  94 +++
+ .specify/templates/checklist-template.md     |  45 ++
+ .specify/templates/constitution-template.md  |  50 ++
+ .specify/templates/plan-template.md          | 113 ++++
+ .specify/templates/spec-template.md          | 131 ++++
+ .specify/templates/tasks-template.md         | 252 +++++++
+ .specify/workflows/speckit/workflow.yml      |  80 +++
+ .specify/workflows/workflow-registry.json    |  13 +
+ 30 files changed, 5414 insertions(+)
+
+### baseline
+
+ .gitignore                                     |  7 +++
+ Catalog.slnx                                   |  8 ++++
+ global.json                                    |  9 ++++
+ src/Catalog.Api/Catalog.Api.csproj             | 15 +++++++
+ src/Catalog.Api/Products.cs                    | 59 ++++++++++++++++++++++++++
+ src/Catalog.Api/Program.cs                     | 25 +++++++++++
+ src/Catalog.Api/Properties/launchSettings.json | 23 ++++++++++
+ src/Catalog.Api/appsettings.Development.json   |  8 ++++
+ src/Catalog.Api/appsettings.json               |  9 ++++
+ tests/Catalog.Tests/Catalog.Tests.csproj       | 26 ++++++++++++
+ tests/Catalog.Tests/ProductTests.cs            | 31 ++++++++++++++
+ 11 files changed, 220 insertions(+)

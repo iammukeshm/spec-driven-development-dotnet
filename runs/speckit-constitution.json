@@ -1,0 +1,71 @@
+{
+  "type": "result",
+  "subtype": "success",
+  "is_error": false,
+  "num_turns": 5,
+  "duration_ms": 23194,
+  "duration_api_ms": 19912,
+  "total_cost_usd": 0.2102562,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 41853,
+    "cache_read_input_tokens": 179882,
+    "output_tokens": 2484,
+    "output_tokens_details": {
+      "thinking_tokens": 167
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 41853,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 552,
+        "cache_read_input_tokens": 57771,
+        "cache_creation_input_tokens": 1729,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1729
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2484,
+      "cacheReadInputTokens": 179882,
+      "cacheCreationInputTokens": 41853,
+      "webSearchRequests": 0,
+      "costUSD": 0.2102562,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 167,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 41853,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_0116H2uHoJjWZJGMfwfffcoj",
+      "tool_input": {
+        "command": ".specify/scripts/bash/resolve-template.sh constitution-template --json; rtk ls .specify; rtk read .specify/extensions.yml 2>/dev/null | head -30; rtk ls; rtk read .specify/memory/constitution.md | head -5"
+      }
+    }
+  ],
+  "result": "Constitution written to `.specify/memory/constitution.md` at **v1.0.0**. It's a first adoption, so I set it to 1.0.0. Ratified and last-amended date are both 2026-11-20. There are no hooks (`.specify/extensions.yml` doesn't exist), and no TODOs are left.\n\n**Principles**\n1. .NET 10 Minimal APIs: no controllers, `TypedResults`, `ProblemDetails` for errors.\n2. EF Core 10 for all data access, with migrations.\n3. Integration tests for every rule, using xUnit v3 and `WebApplicationFactory`. Tests are written first. I marked this NON-NEGOTIABLE.\n4. Keep it simple: no abstractions without a stated need, and no features outside the spec.\n5. No new libraries unless needed: a new package needs a justification in the plan. The test packages are pre-approved.\n\nI also added a Technology Constraints section, a Development Workflow section and a Governance section.\n\n**Things I added that you didn't ask for**\n- The test database rule: SQLite in-memory or the EF in-memory provider is fine, but a rule that depends on provider behavior must use the real provider. The EF in-memory provider hides real problems like constraints and transactions, so decide whether you want this.\n- Each test gets its own isolated database.\n- Every plan must include a Constitution Check.\n\n**Suggested commit message**\n`docs: adopt constitution v1.0.0 (.NET 10 minimal APIs, EF Core 10, test-per-rule)`\n\nThe Sync Impact Report is an HTML comment at the top of the file. Remove it before committing, as the template expects."
+}
